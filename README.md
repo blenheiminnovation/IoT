@@ -7,7 +7,7 @@
 - Analogue Joystick
 - Light Depenedant Resistor (LDR) / Photo-Resistor
 - Ultrasonic Sensor (HC-SR04)
-- Particle Matter Sensor (PMD5003)
+- Particle Matter Sensor (PMS5003)
 - 10 kiloohm Resistor
 - 220 ohm Resistor
 - 14 F-M Cables Maximum
