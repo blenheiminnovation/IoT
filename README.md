@@ -26,7 +26,8 @@ For all of the following programs I used the following modules:
 - time
 - utime
 - struct
-- binascii \n
+- binascii
+
 All of the payloads are in the format: Sensor Type, Sensor Name, Value 1, Value2, and Value 3. However the fields Value 2 and Value 3 were only required for the particle matter sensor, so were left blank in the other programs.
 # Light Dependant Resistor (LDR)/Photo-Resistor Process
 My initial use of the RAK module to transmit data from sensors was with an LDR measuring the surrounding light levels. I applied an ADC to the readings from the LDR and converted this value to a percentage. I then used a while loop to constantly check the value of the LDR, adn used an if statement to check if it went below 20%. If this condition was met the data would be transmitted to The Things Network and uplinked to Datacake. The uses of a program such as this could be automating lights turning on or off if a certain light level is reached; this may help save energy because it would prevent lights being left on when they are not needed.
