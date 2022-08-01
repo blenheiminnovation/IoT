@@ -38,7 +38,7 @@ Example Payload Formatter:
 
 ![Screenshot 2022-08-01 105833](https://user-images.githubusercontent.com/109732245/182123975-8e80b21a-268b-4a50-9dc2-61327d6acdfb.png)
 
-Where to Find the Uplink Meassage Link:
+Where to Find the Uplink Message on Datacake Link:
 
 ![Screenshot 2022-08-01 112510](https://user-images.githubusercontent.com/109732245/182128801-4c27dcf1-7d50-4db8-917f-01eae9bc8058.png)
 
