@@ -70,7 +70,7 @@ Dashboard:
 
 ![Screenshot 2022-08-01 125645](https://user-images.githubusercontent.com/109732245/182142823-bc108f2f-8aca-4706-bdbb-b47e390ffe5a.png)
 
-![Screenshot 2022-08-01 112137](https://user-images.githubusercontent.com/109732245/182128087-429625f5-2af7-4728-bcae-83f92e51b094.png)
+![Screenshot 2022-08-01 131335](https://user-images.githubusercontent.com/109732245/182145325-2e3e3238-425d-40cf-af90-19a1e3196964.png)
 
 Payload Decoder/Formatter:
 
