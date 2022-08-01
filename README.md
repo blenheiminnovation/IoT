@@ -82,7 +82,7 @@ Payload Decoder/Formatter:
 - 2 M-M Cables
 - 4 F-M Cables
 
-The initial use of the RAK module to transmit data from sensors can be with an LDR measuring the surrounding light levels. You need to apply an ADC to the readings from the LDR and convert this value to a percentage, for easier handling. Then use a while loop to constantly check the value of the LDR, and use an if statement to check if it goes below 20%. If this condition is met the data will be transmitted to The Things Network and uplinked to Datacake. The uses of a program such as this could be automating lights turning on or off if a certain light level is reached; this may help save energy because it would prevent lights being left on when they are not needed.
+The initial use of the RAK module to transmit data from sensors could be with an LDR measuring the surrounding light levels. You need to apply an ADC to the readings from the LDR and convert this value to a percentage, for easier handling. Then use a while loop to constantly check the value of the LDR, and use an if statement to check if it goes below 20%. If this condition is met the data will be transmitted to The Things Network and uplinked to Datacake. The uses of a program such as this could be automating lights turning on or off if a certain light level is reached; this may help save energy because it would prevent lights being left on when they are not needed.
 
 #### Ultrasonic Sensor Process
 
@@ -95,7 +95,7 @@ The initial use of the RAK module to transmit data from sensors can be with an L
 - 4 M-M cables
 - 8 F-M Cables
 
-After using the LDR you may want to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation: distance = speed x time. Using this algorithm you are able to check whether an object was closer to the sensor than a set distance, for example 15cm, and transmit the value of the distance to The Things Network and Datacake. Uses of this system involve: water level detection and detecting if people are too close to historic artifacts.
+Having usied the LDR you may wish to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation: distance = speed x time. Using this algorithm you are able to check whether an object was closer to the sensor than a set distance, for example 15cm, and transmit the value of the distance to The Things Network and Datacake. Uses of this system involve: water level detection and detecting if people are too close to historic artifacts.
 
 #### Particulate Matter Sensor Process
 
