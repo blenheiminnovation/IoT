@@ -26,9 +26,37 @@ For all of the following programs you will need the following modules:
 
 All of the payloads are in the format: Sensor Type, Sensor Name, Value 1, Value2, and Value 3. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be left blank in the other programs.
 #### Use of The Things Network ####
-You need to create an account with The Things Network and was then join an application where you can transmit data to. You also need to code your own payload formatter in JavaScript so that the data could be converted into a more readable format, for human users. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake. To find your DevEUI, AppEUI, and AppKey you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey.
+You need to create an account with The Things Network and was then join an application where you can transmit data to. You also need to code your own payload formatter in JavaScript so that the data could be converted into a more readable format, for human users. To find your DevEUI, AppEUI, and AppKey you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake, to do this go into the 'Integrations' section and click on 'Webhooks'. Once in the webhooks section click 'Add webhook' and select the datacake template; give the webhhok a name and use the API token from datacake, found in the API section of the 'Edit Profile' setting. After creating the webhook, you need to go to datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhoo ksettings.
+
+Screenshots  of The Things Network:
+
+Finding the DevEUI, AppEUI, and AppKey:
+
+![Screenshot 2022-08-01 105611](https://user-images.githubusercontent.com/109732245/182123652-d956e4b8-fbfd-4d87-8268-1736bf962005.png)
+
+Example Payload Formatter:
+
+![Screenshot 2022-08-01 105833](https://user-images.githubusercontent.com/109732245/182123975-8e80b21a-268b-4a50-9dc2-61327d6acdfb.png)
+
+Where to Find the Uplink Meassage Link:
+
+![Screenshot 2022-08-01 112510](https://user-images.githubusercontent.com/109732245/182128801-4c27dcf1-7d50-4db8-917f-01eae9bc8058.png)
+
+![Screenshot 2022-08-01 111444](https://user-images.githubusercontent.com/109732245/182127271-b5bc7ade-e82e-482e-9939-9554960cc151.png)
+
 #### Use of Datacake ####
-You will have to create an account with Datacake and was then invited to join the Blenheim workspace. You will have to create another, similar, payload formatter on Datacake and finally create fields for your data to be stored in.
+You will have to create an account with Datacake and join the Blenheim workspace. In your account you will need to create a device and in the configuration you will have to create another, similar, payload formatter on Datacake and finally create fields for your data to be stored in. On datacake you can create a dashboard, so that you can display your data
+
+Screenshots of Datacake:
+
+Dashboard:
+
+![Screenshot 2022-08-01 112137](https://user-images.githubusercontent.com/109732245/182128087-429625f5-2af7-4728-bcae-83f92e51b094.png)
+
+Payload Decoder/Formatter:
+
+![Screenshot 2022-08-01 112804](https://user-images.githubusercontent.com/109732245/182129130-87980809-1667-4630-9c97-3ca626f27717.png)
+
 #### Light Dependant Resistor (LDR)/Photo-Resistor Process ####
 ##### Components Required #####
 - Raspberry Pi Pico with USB Connection to PC
