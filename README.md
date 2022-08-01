@@ -37,6 +37,7 @@ You will have to create an account with Datacake and was then invited to join th
 - 10 kiloohm Resistor
 - 2 M-M Cables
 - 4 F-M Cables
+
 The initial use of the RAK module to transmit data from sensors can be with an LDR measuring the surrounding light levels. You need to apply an ADC to the readings from the LDR and convert this value to a percentage, for easier handling. Then use a while loop to constantly check the value of the LDR, and use an if statement to check if it goes below 20%. If this condition is met the data will be transmitted to The Things Network and uplinked to Datacake. The uses of a program such as this could be automating lights turning on or off if a certain light level is reached; this may help save energy because it would prevent lights being left on when they are not needed.
 ### Ultrasonic Sensor Process ###
 #### Components Required ####
@@ -46,6 +47,7 @@ The initial use of the RAK module to transmit data from sensors can be with an L
 - Ultrasonic Sensor (HC-SR04)
 - 4 M-M cables
 - 8 F-M Cables
+
 After using the LDR you may want to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation: distance = speed x time. Using this algorithm you are able to check whether an object was closer to the sensor than a set distance, for example 15cm, and transmit the value of the distance to The Things Network and Datacake. Uses of this system involve: water level detection and detecting if people are too close to historic artifacts.
 ### Particulate Matter Sensor Process ###
 #### Components Required ####
@@ -54,5 +56,6 @@ After using the LDR you may want to move onto using an ultrasonic sensor, in a s
 - RAK4270 with Antenna
 - Particulate Matter Sensor (PMS5003) and Breakout Board
 - 8 F-M Cables
+
 Using the knowledge you have acquired from all of the previous sensors and programs you will be able to connect a particulate matter sensor (PMS) to the raspberry Pi Pico and RAK module and constantly monitor the surrounding air and transmit this data every minute. You will have to install two modules, being: pms5003-micropython and micropython-uasyncio, however the implementation of these modules allow you to read the data from the PMS and then transmit this data to The Things Network and Datacake. This has uses within many settings, such as offices, classrooms, and homes because it allows users to see if the air surrounding them is safe which means health risks are minimised.
 
