@@ -44,9 +44,13 @@ Screenshots of The Things Network:
 
 Finding the DevEUI, AppEUI, and AppKey:
 
+![Screenshot 2022-08-01 125309](https://user-images.githubusercontent.com/109732245/182142308-c74bb26b-213c-4e1e-8822-56fa0e10aa10.png)
+
 ![Screenshot 2022-08-01 105611](https://user-images.githubusercontent.com/109732245/182123652-d956e4b8-fbfd-4d87-8268-1736bf962005.png)
 
 Example Payload Formatter:
+
+![Screenshot 2022-08-01 125406](https://user-images.githubusercontent.com/109732245/182142384-03aabca8-74df-45dd-8115-1297b109103d.png)
 
 ![Screenshot 2022-08-01 105833](https://user-images.githubusercontent.com/109732245/182123975-8e80b21a-268b-4a50-9dc2-61327d6acdfb.png)
 
@@ -64,9 +68,13 @@ Screenshots of Datacake:
 
 Dashboard:
 
+![Screenshot 2022-08-01 125645](https://user-images.githubusercontent.com/109732245/182142823-bc108f2f-8aca-4706-bdbb-b47e390ffe5a.png)
+
 ![Screenshot 2022-08-01 112137](https://user-images.githubusercontent.com/109732245/182128087-429625f5-2af7-4728-bcae-83f92e51b094.png)
 
 Payload Decoder/Formatter:
+
+![Screenshot 2022-08-01 125515](https://user-images.githubusercontent.com/109732245/182142653-b83fe5e6-5db1-451c-be9f-29fd393f97d4.png)
 
 ![Screenshot 2022-08-01 112804](https://user-images.githubusercontent.com/109732245/182129130-87980809-1667-4630-9c97-3ca626f27717.png)
 
