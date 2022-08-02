@@ -20,9 +20,9 @@ from pms5003 import PMS5003
 
 ####
 
-DevEUI = ""  # Insert your DEVEUI here
-AppEUI = ""  # Insert your APPEUI here
-AppKey = ""  # Insert your APPKEY here
+DevEUI = "60C5A8FFFE78F38E"  # Insert your DEVEUI here
+AppEUI = "1000000000000009"  # Insert your APPEUI here
+AppKey = "170E5E7876C0A42BD9CEB01CE2786544"  # Insert your APPKEY here
 decoded_data = ""
 led = Pin(
     25, Pin.OUT
@@ -32,7 +32,7 @@ led.value(0)
 # Uses the pms5003 module to set up the sensor, to be able to read the data from it
 pms5003 = PMS5003(
     uart=machine.UART(1, tx=machine.Pin(4), rx=machine.Pin(5), baudrate=9600),
-    pin_enable=machine.Pin(3),
+    pin_enable=machine.Pin(29),
     pin_reset=machine.Pin(2),
     mode="active",
 )
@@ -128,7 +128,7 @@ def joinNetwork():
                 decoded_data = data.decode("utf-8")
                 if decoded_data == "OK Join Success\r\n":
                     print(decoded_data)
-                    time.sleep(5)
+                    time.sleep(30)
                 if decoded_data == "ERROR: 99\r\n":
                     raise Exception("Join Error")
 
@@ -138,8 +138,11 @@ def joinNetwork():
                     dataArray = data.data[
                         :3
                     ]  # This gets the first 3 values from the sensor data, which are the only values required for this use case
+                    print(dataArray[0])
+                    print(dataArray[1])
+                    print(dataArray[2])
                     distanceString = (
-                        "PMS~~Testing~~"
+                        "PMS~~TST~~"
                         + str(dataArray[0])
                         + "~~"
                         + str(dataArray[1])
@@ -153,8 +156,8 @@ def joinNetwork():
                     )  # Sends the payload to The Things Network, which then forward uplinks the data to Datacake
                     led.value(0)
                     time.sleep(
-                        300
-                    )  # Stops the data from being constantly transmitted, by forcing it to wait for a minute before iterating through the loop again
+                        15 * 60
+                    )  # Stops the data from being constantly transmitted, by forcing it to wait for 15 minutes before iterating through the loop again
         except:
             time.sleep(5)
             joinNetwork()
