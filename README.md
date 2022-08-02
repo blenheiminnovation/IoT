@@ -70,7 +70,7 @@ Dashboard:
 
 ![Screenshot 2022-08-01 125645](https://user-images.githubusercontent.com/109732245/182142823-bc108f2f-8aca-4706-bdbb-b47e390ffe5a.png)
 
-![Screenshot 2022-08-01 112137](https://user-images.githubusercontent.com/109732245/182128087-429625f5-2af7-4728-bcae-83f92e51b094.png)
+![Screenshot 2022-08-01 131335](https://user-images.githubusercontent.com/109732245/182145325-2e3e3238-425d-40cf-af90-19a1e3196964.png)
 
 Payload Decoder/Formatter:
 
@@ -115,4 +115,4 @@ Having used the LDR you may wish to move onto using an ultrasonic sensor, in a s
 - Particulate Matter Sensor (PMS5003) and Breakout Board
 - 8 F-M Cables
 
-Using the knowledge you have acquired from all of the previous sensors and programs you will be able to connect a particulate matter sensor (PMS) to the raspberry Pi Pico and RAK module and constantly monitor the surrounding air and transmit this data every minute. You will have to install two modules, being: pms5003-micropython and micropython-uasyncio, however the implementation of these modules allow you to read the data from the PMS and then transmit this data to The Things Network and Datacake. This has uses within many settings, such as offices, classrooms, and homes because it allows users to see if the air surrounding them is safe which means health risks are minimised.
+Using the knowledge you have acquired from all of the previous sensors and programs you will be able to connect a particulate matter sensor (PMS) to the raspberry Pi Pico and RAK module and constantly monitor the surrounding air and transmit this data every minute. You will have to install two modules, being: pms5003-micropython and micropython-uasyncio, the implementation of these modules allow you to read the data from the PMS and then transmit this data to The Things Network and Datacake. This has uses within many settings, such as offices, classrooms, and homes because it allows users to see if the air surrounding them is safe which means health risks are minimised.
