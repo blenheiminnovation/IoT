@@ -120,7 +120,7 @@ Having used the LDR you may wish to move onto using an ultrasonic sensor, in a s
 - 6 Jumper Cables
 - 4 F-M Cables
 
-Another sensor you may wish to use could be a temperature sensor, to use this with the Raspberry Pi Pico you need to use the analogue output of the sensor. With this value you can calculate the reference voltage, by dividing the analogue output by 65535 (the maximum ADC value) then multiplying this by the input voltage (3.3V). Using the reference voltage you can find the resistance of the thermistor, through the formula 1 / (((Input Voltage / reference Voltage) - 1) x (1 / Series Resistance)). You can then use this resistance value in the Steinhart equation by doing the following operations: temperature = resistance / 10000; math.log(temperature); temperature + (1 / (25 + 273.15); 1 / temperature; temperature - 273.15. This gives the temperature in °C
+Another sensor you may wish to use could be a temperature sensor, to use this with the Raspberry Pi Pico you need to use the analogue output of the sensor. With this value you can calculate the reference voltage, by dividing the analogue output by 65535 (the maximum ADC value) then multiplying this by the input voltage (3.3V). Using the reference voltage you can find the resistance of the thermistor, through the formula 1 / ({(Input Voltage / reference Voltage) - 1} x {1 / Series Resistance}). You can then use this resistance value in the Steinhart equation by doing the following operations: temperature = resistance / 10000; math.log(temperature); temperature + (1 / (25 + 273.15); 1 / temperature; temperature - 273.15. This gives the temperature in °C
 
 #### Particulate Matter Sensor Process
 
