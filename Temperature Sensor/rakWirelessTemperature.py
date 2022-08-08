@@ -21,9 +21,9 @@ from binascii import hexlify
 
 ####
 
-DevEUI = "60C5A8FFFE78F38E"  # Insert your DEVEUI here
-AppEUI = "1000000000000009"  # Insert your APPEUI here
-AppKey = "170E5E7876C0A42BD9CEB01CE2786544"  # Insert your APPKEY here
+DevEUI = ""  # Insert your DEVEUI here
+AppEUI = ""  # Insert your APPEUI here
+AppKey = ""  # Insert your APPKEY here
 decoded_data = ""
 led = Pin(
     25, Pin.OUT
