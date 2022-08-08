@@ -133,8 +133,8 @@ while decoded_data != "OK\r\n":
         print("APPKEY done!\r\n" + decoded_data)
 ## END OF SETTING UP ##
 
-join_count = 1
 ## TRY TO JOIN THE NETWORK!##
+join_count = 1
 def joinNetwork(join_count):
     decoded_data = ""
     uart.write("at+join\r\n")
