@@ -26,7 +26,7 @@ AppEUI = ""  # Insert your APPEUI here
 AppKey = ""  # Insert your APPKEY here
 decoded_data = ""
 led = Pin(
-    25, Pin.OUT
+    15, Pin.OUT
 )  # Connects to the onboard LED to give a physical signal of when data is being transmitted
 tempPin = ADC(Pin(26, Pin.IN))
 led.value(0)
@@ -44,7 +44,7 @@ def hexConvert(
 def findTemp(ADCValue):
     V0 = (
         ADCValue / 65535
-    ) * 3.3  # Calculating the reference voltage, using the ratio between the measured value and the maximum ADC value. The multiplying the input voltage by this ratio
+    ) * 3.3  # Calculating the reference voltage, using the ratio between the measured value and the maximum ADC value. Then multiplying the input voltage by this ratio
 
     resistance = ((3.3 / V0) - 1) * (
         1 / 44900
@@ -59,6 +59,7 @@ def findTemp(ADCValue):
     temperature += 1 / (25 + 273.15)
     temperature = 1 / temperature
     temperature -= 273.15  # Converting from Kelvin into Centigrade
+    temperature = round(temperature, 2)
 
     return temperature
 
@@ -154,11 +155,9 @@ def joinNetwork(join_count):
                         tempPin.read_u16()
                     )  # Reading the value in 16bits unsigned
                     temperature = findTemp(ADCValue)
-                    print(temperature)
                     temperatureString = (
                         "TMP~~TST~~" + str(temperature) + "~~0~~0"
                     )  # This acts as the payload for trasnmission and is in the structure: Sensor Type, Sensor Name, Value 1, Value 2, Value 3
-                    print(temperatureString)
                     payload = hexConvert(temperatureString)
                     uart.write(
                         "at+send=lora:2:" + payload + "\r\n"
