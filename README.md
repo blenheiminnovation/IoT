@@ -42,7 +42,7 @@ Firstly you will need to download the Thonny IDE, in order to be able to write c
 
 #### Use of The Things Network
 
-You need to create an account with The Things Network and then join or create an application to which you can transmit data. You also need to code your own payload formatter in JavaScript so that the data can be converted into a more readable format, for human users. To find your DevEUI, AppEUI, and AppKey, to enter into the programs, you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake, to do this go into the 'Integrations' section and click on 'Webhooks'. Once in the webhooks section click 'Add webhook' and select the Datacake template; give the webhhok a name and use the API token from Datacake, found in the API section of the 'Edit Profile' setting. After creating the webhook, you need to go to Datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhook settings.
+You need to create an account with The Things Network and then join or create an application to which you can transmit data and create yout device in this application. You also need to code your own payload formatter in JavaScript so that the data can be converted into a more readable format, for human users. To find your DevEUI, AppEUI, and AppKey, to enter into the programs, you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake, to do this go into the 'Integrations' section and click on 'Webhooks'. Once in the webhooks section click 'Add webhook' and select the Datacake template; give the webhhok a name and use the API token from Datacake, found in the API section of the 'Edit Profile' setting. After creating the webhook, you need to go to Datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhook settings.
 
 Screenshots of The Things Network:
 
@@ -66,7 +66,7 @@ Where to Find the Uplink Message Link on Datacake:
 
 #### Use of Datacake
 
-You will have to create an account with Datacake. In your account you will need to create a device and in the configuration you will have to create another, similar, payload formatter on Datacake and finally create fields for your data to be stored in. On Datacake you can create a dashboard, so that you can display your data.
+You will have to create an account with Datacake. In your account you will need to create a device, by pressing the 'Add Device' Button and selecting the LoRaWAN option then select 'New Product' and give the product a name; select The Things Stack V3 as the Network Server, after this enter the devices DevEUI and name. Finally select the free plan and add the device. Then in the configuration you will have to create another, similar, payload formatter on Datacake and finally create fields for your data to be stored in. On Datacake you can create a dashboard, so that you can display your data.
 
 Screenshots of Datacake:
 
