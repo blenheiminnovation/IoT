@@ -66,7 +66,7 @@ Where to Find the Uplink Message Link on Datacake:
 
 #### Use of Datacake
 
-You will have to create an account with Datacake and join the Blenheim workspace. In your account you will need to create a device and in the configuration you will have to create another, similar, payload formatter on Datacake and finally create fields for your data to be stored in. On Datacake you can create a dashboard, so that you can display your data.
+You will have to create an account with Datacake. In your account you will need to create a device and in the configuration you will have to create another, similar, payload formatter on Datacake and finally create fields for your data to be stored in. On Datacake you can create a dashboard, so that you can display your data.
 
 Screenshots of Datacake:
 
