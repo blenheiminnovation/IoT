@@ -13,6 +13,7 @@
 # ----------------------------------------------------------------------------
 import time
 from pms5003 import PMS5003
+import machine 
 
 print(
     """pms5003_test.py - Continously print all data values.
