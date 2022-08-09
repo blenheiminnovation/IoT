@@ -13,7 +13,7 @@
 # ----------------------------------------------------------------------------
 import time
 from pms5003 import PMS5003
-import machine 
+import machine
 
 print(
     """pms5003_test.py - Continously print all data values.
@@ -21,7 +21,7 @@ print(
 )
 
 
-# Configure the PMS5003 for Enviro+
+# Uses the pms5003 module to set up the sensor, to be able to read the data from it
 pms5003 = PMS5003(
     uart=machine.UART(1, tx=machine.Pin(4), rx=machine.Pin(5), baudrate=9600),
     pin_enable=machine.Pin(3),
