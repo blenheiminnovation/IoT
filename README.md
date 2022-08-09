@@ -34,7 +34,7 @@ For all of the following programs you will need the following modules:
 - struct
 - binascii - to convert strings into hexadecimal
 
-All of the payloads are in the format: Sensor Type, Sensor Name, Value 1, Value2, and Value 3. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be left blank in the other programs.
+All of the payloads are in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be left blank in the other programs.
 
 #### Setting up Thonny
 
