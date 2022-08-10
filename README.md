@@ -8,6 +8,22 @@
 
 ## Programming Process
 
+### Overarching Themes
+
+For all of the following programs you will need the following modules:
+
+- machine
+- time
+- utime
+- struct
+- binascii - to convert strings into hexadecimal
+
+All of the payloads are in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be left blank in the other programs.
+
+### Setting up Thonny
+
+Firstly you will need to download the Thonny IDE, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are read yto write your code.
+
 ### LED Process
 
 #### Components Required:
@@ -23,22 +39,6 @@
 To begin with you could start with a very basic circuit containing the Raspberry Pi Pico, LED, and 220 ohm resistor all plugged into the breadboard. You should then write the code to blink the LED on and off. Following this you can develop both the circuit and code further by adding in a button, which is then used as a condition in a selection statement with the code to toggle the LED nested in it. Further advancements are made by implemeting the ability for the LED to change its brightness, via the use of pulse-width modulation (PWM). Finally you could replace the button with an analogue joystick and use this to change the brightness of the LED based upon the X value of the joystick after an analogue to digital converter (ADC) had been applied to it.
 
 ### LoRa Transmission, via the RAK module.
-
-#### Overarching Themes
-
-For all of the following programs you will need the following modules:
-
-- machine
-- time
-- utime
-- struct
-- binascii - to convert strings into hexadecimal
-
-All of the payloads are in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be left blank in the other programs.
-
-#### Setting up Thonny
-
-Firstly you will need to download the Thonny IDE, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button, and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are read yto write your code.
 
 #### Use of The Things Network
 
