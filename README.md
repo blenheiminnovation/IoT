@@ -88,7 +88,7 @@ Using the knowledge you have acquired from all of the previous sensors and progr
 
 #### Setting up the RAK Module
 
-Connect the RAK Module to the Raspberry Pi Pico and write the code to be able to connect to The Things Network. Join this code and the code used for the sensors together, to be able to transmit the sensor readings to The Things Network. Once you have done this you can move on to setting up The Things Network for use. You can create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3 , using the values from the sensor and hardcoding the sensor type and name in the program. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be put as 0 in the other programs. Then convert the string payload into hexadecimal so that it can be transmitted
+Connect the RAK Module to the Raspberry Pi Pico and write the code to be able to connect to The Things Network. Join this code and the code used for the sensors together, to be able to transmit the sensor readings to The Things Network. Once you have done this you can move on to setting up The Things Network for use. You can create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be put as 0 in the other programs. Then convert the string payload into hexadecimal so that it can be transmitted
 
 #### Use of The Things Network
 
