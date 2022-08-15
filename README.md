@@ -104,7 +104,7 @@ Finding the DevEUI, AppEUI, and AppKey:
 
 Example Payload Formatter:
 
-![Screenshot 2022-08-01 125406](https://user-images.githubusercontent.com/109732245/182142384-03aabca8-74df-45dd-8115-1297b109103d.png)
+![Screenshot 2022-08-01 125406](https://user-images.githubusercontent.com/109732245/184601598-fd84f3fd-15ea-4c5b-b0f0-860a1c60f2b3.jpg)
 
 ![Screenshot 2022-08-01 105833](https://user-images.githubusercontent.com/109732245/182123975-8e80b21a-268b-4a50-9dc2-61327d6acdfb.png)
 
