@@ -20,7 +20,7 @@ For all of the following programs you will need the following modules:
 
 ### Setting up Thonny
 
-Firstly you will need to download the Thonny IDE, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
+Firstly you will need to download the Thonny IDE at https://thonny.org/, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
 
 ### LED Process
 
@@ -92,7 +92,7 @@ Connect the RAK Module to the Raspberry Pi Pico and write the code to be able to
 
 #### Use of The Things Network
 
-You need to create an account with The Things Network and then join or create an application to which you can transmit data and create your device in this application. You also need to code your own payload formatter in JavaScript so that the data can be converted into a more readable format, for human users. To find your DevEUI, AppEUI, and AppKey, to enter into the programs, you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey.  After this you can then test your programs involving the RAK module, checking for a connection to The Things Network and then the transmission of data. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake, to do this go into the 'Integrations' section and click on 'Webhooks'. Once in the webhooks section click 'Add webhook' and select the Datacake template; give the webhhok a name and use the API token from Datacake, found in the API section of the 'Edit Profile' setting. After creating the webhook, you need to go to Datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhook settings.
+You need to create an account with The Things Network, click on your profile and select console then join or create an application to which you can transmit data and create your device in this application. You also need to code your own payload formatter in JavaScript so that the data can be converted into a more readable format, for human users. To find your DevEUI, AppEUI, and AppKey, to enter into the programs, you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey. After this you can then test your programs involving the RAK module, checking for a connection to The Things Network and then the transmission of data. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake, to do this go into the 'Integrations' section and click on 'Webhooks'. Once in the webhooks section click 'Add webhook' and select the Datacake template; give the webhhok a name and use the API token from Datacake, found in the API section of the 'Edit Profile' setting. After creating the webhook, you need to go to Datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhook settings.
 
 Screenshots of The Things Network:
 
@@ -102,7 +102,7 @@ Finding the DevEUI, AppEUI, and AppKey:
 
 ![Screenshot 2022-08-01 105611](https://user-images.githubusercontent.com/109732245/182123652-d956e4b8-fbfd-4d87-8268-1736bf962005.png)
 
-Example Payload Formatter:
+Example Payload Decoder/Formatter:
 
 ![Screenshot 2022-08-01 125406](https://user-images.githubusercontent.com/109732245/184601598-fd84f3fd-15ea-4c5b-b0f0-860a1c60f2b3.jpg)
 
@@ -126,7 +126,7 @@ Dashboard:
 
 ![Screenshot 2022-08-01 131335](https://user-images.githubusercontent.com/109732245/182145325-2e3e3238-425d-40cf-af90-19a1e3196964.png)
 
-Payload Decoder/Formatter:
+Example Payload Decoder/Formatter:
 
 ![Screenshot 2022-08-01 125515](https://user-images.githubusercontent.com/109732245/182142653-b83fe5e6-5db1-451c-be9f-29fd393f97d4.png)
 
