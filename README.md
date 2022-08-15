@@ -84,6 +84,15 @@ Another sensor you may wish to use could be a temperature sensor, to use this wi
 
 Using the knowledge you have acquired from all of the previous sensors and programs you will be able to connect a particulate matter sensor (PMS) to the Raspberry Pi Pico and constantly monitor the surrounding air and read this data every minute. You will have to install two modules, being: pms5003-micropython and micropython-uasyncio, the implementation of these modules allow you to read the data from the PMS and then use the values throughout your program. This has uses within many settings, such as offices, classrooms, and homes because it allows users to see if the air surrounding them is safe which means health risks are minimised.
 
+### Gas Sensor Process
+
+#### Components Required
+- The Things Uno
+- Grove Multichannel Gas Sensor
+- 4 pin grove to male jumper cable
+
+Using the Arduino IDE you wil need to download the 'Grove - Multichannel Gas Sensor' library, by going into tools > manage libraries and searching for the name. With the module installed you can get the code to read the sensor value by going into the file tab, clicking on examples then the installed library and then ReadSensorValue_Grove. When you have this code and the Arduino plugged in press the upload button on the top bar of the IDE and then the open serial button in the top right corner. You should now see the values from the sesnor being outputted, you will notice there are more than just NO2 however the others can be deleted if you will not be using them. To be implement the ability to transmit data you need to install another library, TheThingsNetwork, and find the SendOTAA example code. With this code and the NO2 sensor code, you can join the two programs together and use the NO2 value from the sensor to create a payload to be transmitted to The Things Netwok.
+
 ### LoRa Transmission, via the RAK module.
 
 #### Setting up the RAK Module
