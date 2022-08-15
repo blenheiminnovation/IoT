@@ -82,7 +82,7 @@ Another sensor you may wish to use could be a temperature sensor, to use this wi
 - Particulate Matter Sensor (PMS5003) and Breakout Board
 - 8 F-M Cables
 
-Using the knowledge you have acquired from all of the previous sensors and programs you will be able to connect a particulate matter sensor (PMS) to the raspberry Pi Pico and constantly monitor the surrounding air and read this data every minute. You will have to install two modules, being: pms5003-micropython and micropython-uasyncio, the implementation of these modules allow you to read the data from the PMS and then use the values throughout your program. This has uses within many settings, such as offices, classrooms, and homes because it allows users to see if the air surrounding them is safe which means health risks are minimised.
+Using the knowledge you have acquired from all of the previous sensors and programs you will be able to connect a particulate matter sensor (PMS) to the Raspberry Pi Pico and constantly monitor the surrounding air and read this data every minute. You will have to install two modules, being: pms5003-micropython and micropython-uasyncio, the implementation of these modules allow you to read the data from the PMS and then use the values throughout your program. This has uses within many settings, such as offices, classrooms, and homes because it allows users to see if the air surrounding them is safe which means health risks are minimised.
 
 ### LoRa Transmission, via the RAK module.
 
