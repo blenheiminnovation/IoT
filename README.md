@@ -42,7 +42,7 @@ To begin with you could start with a very basic circuit containing the Raspberry
 
 - Raspberry Pi Pico with USB Connection to PC
 - Breadboard
-- Light Depenedant Resistor (LDR) / Photo-Resistor
+- Light Dependant Resistor (LDR) / Photo-Resistor
 - 10 kiloohm Resistor
 - 2 M-M Cables
 - 4 F-M Cables
