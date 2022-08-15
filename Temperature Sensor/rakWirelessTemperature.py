@@ -26,7 +26,7 @@ AppEUI = ""  # Insert your APPEUI here
 AppKey = ""  # Insert your APPKEY here
 decoded_data = ""
 led = Pin(
-    15, Pin.OUT
+    25, Pin.OUT
 )  # Connects to the onboard LED to give a physical signal of when data is being transmitted
 tempPin = ADC(Pin(26, Pin.IN))
 led.value(0)
