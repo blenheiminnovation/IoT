@@ -28,11 +28,11 @@
 ## Software Used
 
 - Chrome
-- Thonny
 - GitHub
-- The Things Network
-- Datacake
-- Cirkit Designer
+- [Thonny](https://thonny.org/)
+- [The Things Network](https://www.thethingsnetwork.org/)
+- [Datacake](https://app.datacake.de/)
+- [Cirkit Designer](https://www.cirkitstudio.com/)
 
 ## Programming Process
 
@@ -48,7 +48,7 @@ For all of the following programs you will need the following modules:
 
 ### Setting up Thonny
 
-Firstly you will need to download the Thonny IDE at <https://thonny.org/>, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
+Firstly you will need to download the Thonny IDE, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
 
 ### LED Process
 
