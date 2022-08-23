@@ -30,6 +30,9 @@
 - Chrome
 - Thonny
 - GitHub
+- The Things Network
+- Datacake
+- Cirkit Designer
 
 ## Programming Process
 
