@@ -1,6 +1,26 @@
 # IoT
-
-## Software Used:
+## Contents
+  - [Software Used](#software-used)
+  - [Programming Process](#programming-process)
+    - [Overarching Themes](#overarching-themes)
+    - [Setting up Thonny](#setting-up-thonny)
+    - [LED Process](#led-process)
+      - [Components Required:](#components-required)
+    - [Light Dependant Resistor (LDR)/Photo-Resistor Process](#light-dependant-resistor-ldrphoto-resistor-process)
+      - [Components Required](#components-required-1)
+    - [Ultrasonic Sensor Process](#ultrasonic-sensor-process)
+      - [Components Required](#components-required-2)
+    - [Temperature Sensor Process](#temperature-sensor-process)
+      - [Components Required](#components-required-3)
+    - [Particulate Matter Sensor Process](#particulate-matter-sensor-process)
+      - [Components Required](#components-required-4)
+    - [Gas Sensor Process](#gas-sensor-process)
+      - [Components Required](#components-required-5)
+    - [LoRa Transmission, via the RAK module.](#lora-transmission-via-the-rak-module)
+      - [Setting up the RAK Module](#setting-up-the-rak-module)
+      - [Use of The Things Network](#use-of-the-things-network)
+      - [Use of Datacake](#use-of-datacake)
+## Software Used
 
 - Chrome
 - Thonny
@@ -87,7 +107,7 @@ Using the knowledge you have acquired from all of the previous sensors and progr
 ### Gas Sensor Process
 
 #### Components Required
-- The Things Uno
+- The Things Uno with USB Connection to PC
 - Grove Multichannel Gas Sensor
 - 4 pin grove to male jumper cable
 
