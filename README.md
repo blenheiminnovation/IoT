@@ -1,11 +1,15 @@
 # IoT
+
 ## Contents
+
+- [IoT](#iot)
+  - [Contents](#contents)
   - [Software Used](#software-used)
   - [Programming Process](#programming-process)
     - [Overarching Themes](#overarching-themes)
     - [Setting up Thonny](#setting-up-thonny)
     - [LED Process](#led-process)
-      - [Components Required:](#components-required)
+      - [Components Required](#components-required)
     - [Light Dependant Resistor (LDR)/Photo-Resistor Process](#light-dependant-resistor-ldrphoto-resistor-process)
       - [Components Required](#components-required-1)
     - [Ultrasonic Sensor Process](#ultrasonic-sensor-process)
@@ -16,7 +20,7 @@
       - [Components Required](#components-required-4)
     - [Gas Sensor Process](#gas-sensor-process)
       - [Components Required](#components-required-5)
-    - [LoRa Transmission, via the RAK module.](#lora-transmission-via-the-rak-module)
+    - [LoRa Transmission, via the RAK module](#lora-transmission-via-the-rak-module)
       - [Setting up the RAK Module](#setting-up-the-rak-module)
       - [Use of The Things Network](#use-of-the-things-network)
       - [Use of Datacake](#use-of-datacake)
@@ -41,11 +45,11 @@ For all of the following programs you will need the following modules:
 
 ### Setting up Thonny
 
-Firstly you will need to download the Thonny IDE at https://thonny.org/, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
+Firstly you will need to download the Thonny IDE at <https://thonny.org/>, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
 
 ### LED Process
 
-#### Components Required:
+#### Components Required
 
 - Raspberry Pi Pico with USB Connection to PC
 - Breadboard
@@ -80,7 +84,7 @@ Moving onto using sensors, you could start with an LDR measuring the surrounding
 - 4 M-M cables
 - 8 F-M Cables
 
-Having used the LDR you may wish to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation: 
+Having used the LDR you may wish to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation:
 
 $$ distance = speed * time $$
 
@@ -98,16 +102,15 @@ Using this algorithm you are able to check whether an object is closer to the se
 
 Another sensor you may wish to use could be a temperature sensor, to use this with the Raspberry Pi Pico you need to use the analogue output of the sensor. With this value you can calculate the reference voltage, by using the: input voltage (3.3V)(Vi), and the analogue output (AO) in the formula:
 
-$$ Vr = Vi * (AO / 65523) $$ 
+$$ Vr = Vi * (AO / 65523) $$
 
 With the reference voltage, series resistance (44900)(Rs), and input voltage (Vi) you can find the resistance of the thermistor (Rt), using the formula:
 
-$$ Rt = 1 / (((Vi / Vr) - 1) * (1 / Rs)) $$ 
+$$ Rt = 1 / (((Vi / Vr) - 1) * (1 / Rs)) $$
 
 You can then use this resistance (Rt) value in the Steinhart equation, to give the temperature in °C:
 
 $$ (1 / ((log(Rt / 10000)) + (1 / (25 + 273.15))) - 273.12 $$
-
 
 ### Particulate Matter Sensor Process
 
@@ -123,13 +126,14 @@ Using the knowledge you have acquired from all of the previous sensors and progr
 ### Gas Sensor Process
 
 #### Components Required
+
 - The Things Uno with USB Connection to PC
 - Grove Multichannel Gas Sensor
 - 4 pin grove to male jumper cable
 
 Using the Arduino IDE you wil need to download the 'Grove - Multichannel Gas Sensor' library, by going into tools > manage libraries and searching for the name. With the module installed you can get the code to read the sensor value by going into the file tab, clicking on examples then the installed library and then ReadSensorValue_Grove. When you have this code and the Arduino plugged in press the upload button on the top bar of the IDE and then the open serial button in the top right corner. You should now see the values from the sesnor being outputted, you will notice there are more than just NO2 however the others can be deleted if you will not be using them. To be implement the ability to transmit data you need to install another library, TheThingsNetwork, and find the SendOTAA example code. With this code and the NO2 sensor code, you can join the two programs together and use the NO2 value from the sensor to create a payload to be transmitted to The Things Netwok.
 
-### LoRa Transmission, via the RAK module.
+### LoRa Transmission, via the RAK module
 
 #### Setting up the RAK Module
 
