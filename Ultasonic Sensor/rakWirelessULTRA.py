@@ -159,15 +159,15 @@ def joinNetwork():
                     ):  # If the object becomes closer than 15cm, the distance value is transmitted
                         led.value(1)
                         distanceString = (
-                            "US~~Testing~~" + str(distance) + "~~" + " " + "~~" + " "
+                            "US~~TST~~" + str(distance) + "~~0~~0"
                         )  # Only one value is outputted by the sensor so the Value 2 and Value 3 fields are left blank
                         payload = hexConvert(distanceString)
                         # testpack = ustruct.pack('h',payload)
                         uart.write("at+send=lora:2:" + payload + "\r\n")
                         led.value(0)
                         time.sleep(
-                            60
-                        )  # Stops the data from being constantly transmitted, by forcing it to wait for a minute before iterating through the loop again
+                            15 * 60
+                        )  # Stops the data from being constantly transmitted, by forcing it to wait for 15 minutes before iterating through the loop again
         except:
             time.sleep(5)
             joinNetwork()

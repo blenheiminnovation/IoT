@@ -29,7 +29,7 @@ photoPIN = 26  # Gets the pin number for the LDR/Photo-Resistor
 
 
 def readLight(photoGP):
-    photores = ADC(Pin(26))  # Reads an analogue value from the LDR
+    photores = ADC(Pin(photoGP))  # Reads an analogue value from the LDR
     light = (
         photores.read_u16()
     )  # The light value is read using a 16-bit reading function
@@ -140,15 +140,15 @@ def joinNetwork():
                     ):  # If the sensor value drops below 20%, the %age value is trasnmitted
                         led.value(1)
                         brightnessString = (
-                            "LDR~~Testing~~" + str(brightness) + "~~" + " " + "~~" + " "
+                            "LDR~~TST~~" + str(brightness) + "~~0~~0"
                         )  # Only one value is outputted by the sensor so the Value 2 and Value 3 fields are left blank
                         payload = hexConvert(brightnessString)
                         # testpack = ustruct.pack('h',payload)
                         uart.write("at+send=lora:2:" + payload + "\r\n")
                         led.value(0)
                         time.sleep(
-                            60
-                        )  # Stops the data from being constantly transmitted, by forcing it to wait for a minute before iterating through the loop again
+                            15 * 60
+                        )  # Stops the data from being constantly transmitted, by forcing it to wait for 15 minutes before iterating through the loop again
         except:
             time.sleep(5)
             joinNetwork()
