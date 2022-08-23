@@ -79,7 +79,9 @@ Moving onto using sensors, you could start with an LDR measuring the surrounding
 - 4 M-M cables
 - 8 F-M Cables
 
-Having used the LDR you may wish to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation: distance = speed x time. Using this algorithm you are able to check whether an object is closer to the sensor than a set distance, for example 15cm, and output the value if the condition is met. Uses of this system involve: water level detection and detecting if people are too close to historic artifacts.
+Having used the LDR you may wish to move onto using an ultrasonic sensor, in a similar fashion to how you used the LDR. You need to create an algorithm to convert the time taken, for the sound to be emitted from the sensor and reflect back off of an object, into a distance - in centimeters - by using the speed of sound in air and this time in the equation: 
+$$ distance = speed * time $$
+Using this algorithm you are able to check whether an object is closer to the sensor than a set distance, for example 15cm, and output the value if the condition is met. Uses of this system involve: water level detection and detecting if people are too close to historic artifacts.
 
 ### Temperature Sensor Process
 
@@ -91,7 +93,12 @@ Having used the LDR you may wish to move onto using an ultrasonic sensor, in a s
 - 6 Jumper Cables
 - 4 F-M Cables
 
-Another sensor you may wish to use could be a temperature sensor, to use this with the Raspberry Pi Pico you need to use the analogue output of the sensor. With this value you can calculate the reference voltage, by dividing the analogue output by 65535 (the maximum ADC value) then multiplying this by the input voltage (3.3V). Using the reference voltage you can find the resistance of the thermistor, through the formula 1 / ({(Input Voltage / reference Voltage) - 1} x {1 / Series Resistance}). You can then use this resistance value in the Steinhart equation by doing the following operations: temperature = resistance / 10000; math.log(temperature); temperature + (1 / {25 + 273.15}); 1 / temperature; temperature - 273.15. This gives the temperature in °C
+Another sensor you may wish to use could be a temperature sensor, to use this with the Raspberry Pi Pico you need to use the analogue output of the sensor. With this value you can calculate the reference voltage, by using the: input voltage (3.3V)(Vi), and the analogue output (AO) in the formula
+$$ Vr = Vi * (AO / 65523) $$ 
+With the reference voltage, series resistance (44900)(Rs), and input voltage (Vi) you can find the resistance of the thermistor (Rt), using the formula
+$$ Rt = 1 / (((Vi / Vr) - 1) * (1 / Rs)) $$ 
+You can then use this resistance (Rt) value in the Steinhart equation, to give the temperature in °C
+$$ (1 / ((log(Rt / 10000)) + (1 / (25 + 273.15))) - 273.12 $$
 
 ### Particulate Matter Sensor Process
 
