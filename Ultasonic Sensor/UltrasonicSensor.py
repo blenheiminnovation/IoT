@@ -19,7 +19,7 @@ echo = Pin(2, Pin.IN)  # Getting the Ultrasonic sensor's echo pin
 
 
 def ultra():
-    trigger.low()  # Sets the triiger pin to low, to ensure it is not active
+    trigger.low()  # Sets the trigger pin to low, to ensure it is not active
     utime.sleep_us(2)
     trigger.high()  # Pulses the trigger pin high for 5 microseconds
     utime.sleep_us(5)
