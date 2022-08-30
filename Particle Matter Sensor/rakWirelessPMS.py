@@ -23,6 +23,14 @@ from pms5003 import PMS5003
 DevEUI = ""  # Insert your DEVEUI here
 AppEUI = ""  # Insert your APPEUI here
 AppKey = ""  # Insert your APPKEY here
+led1 = Pin(27, Pin.OUT)
+led2 = Pin(26, Pin.OUT)
+led3 = Pin(22, Pin.OUT)
+led4 = Pin(21, Pin.OUT)
+led5 = Pin(20, Pin.OUT)
+led6 = Pin(19, Pin.OUT)
+led7 = Pin(18, Pin.OUT)
+led8 = Pin(17, Pin.OUT)
 decoded_data = ""
 led = Pin(
     25, Pin.OUT
@@ -114,19 +122,30 @@ while decoded_data != "OK\r\n":
 ## END OF SETTING UP ##
 
 ## TRY TO JOIN THE NETWORK!##
-def joinNetwork():
+join_count = 1
+def joinNetwork(join_count):
     decoded_data = ""
-    uart.write("at+join\r\n")
-    print("joining...")
-    while decoded_data != "OK Join Success\r\n":
+    uart.write("AT+JOIN=1:0:38:0\r\n")
+    print(str(join_count) + " joining...")
+    binNum = findBinary(join_count)
+    led1.value(int(binNum[0]))
+    led2.value(int(binNum[1]))
+    led3.value(int(binNum[2]))
+    led4.value(int(binNum[3]))
+    led5.value(int(binNum[4]))
+    led6.value(int(binNum[5]))
+    led7.value(int(binNum[6]))
+    led8.value(int(binNum[7]))
+    time.sleep(10)
+    while decoded_data != "OK\r\n":
         try:
             data = uart.read()
             if data:
                 decoded_data = data.decode("utf-8")
-                if decoded_data == "OK Join Success\r\n":
+                print(decoded_data)
+                if decoded_data == "OK\r\n":
                     print(decoded_data)
-                    time.sleep(30)
-                if decoded_data == "ERROR: 99\r\n":
+                elif "AT_BUSY_ERROR" in decoded_data:
                     raise Exception("Join Error")
 
                 while 1:

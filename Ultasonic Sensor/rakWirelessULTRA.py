@@ -22,6 +22,14 @@ from binascii import hexlify
 DevEUI = ""  # Insert your DEVEUI here
 AppEUI = ""  # Insert your APPEUI here
 AppKey = ""  # Insert your APPKEY here
+led1 = Pin(27, Pin.OUT)
+led2 = Pin(26, Pin.OUT)
+led3 = Pin(22, Pin.OUT)
+led4 = Pin(21, Pin.OUT)
+led5 = Pin(20, Pin.OUT)
+led6 = Pin(19, Pin.OUT)
+led7 = Pin(18, Pin.OUT)
+led8 = Pin(17, Pin.OUT)
 decoded_data = ""
 led = Pin(
     25, Pin.OUT
@@ -76,21 +84,18 @@ uart = UART(0, 115200)  # use RPI PICO GP0 and GP1
 #    print("Check Config:" + decoded_data)
 
 ## Setup the wireless module OTAA, Class, Region, keys##
-uart.write("at+set_config=lora:join_mode:0\r\n")
+uart.write("AT+NJM=1\r\n")
+decoded_data = ""
 print("set to OTAA")
 while decoded_data != "OK\r\n":
-
     data = uart.read()
-
     if data:
         decoded_data = data.decode("utf-8")
         print("OTAA done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:class:0\r\n")
+uart.write("AT+CLASS=A\r\n")
 print("set to Class A")
-
-
 while decoded_data != "OK\r\n":
     data = uart.read()
     if data:
@@ -98,7 +103,7 @@ while decoded_data != "OK\r\n":
         print("Class A done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:region:EU868\r\n")
+uart.write("AT+BAND=4\r\n")
 print("set to EU868 region")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -107,7 +112,7 @@ while decoded_data != "OK\r\n":
         print("EU868 done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:dev_eui:" + DevEUI + "\r\n")
+uart.write("AT+DEVEUI=" + DevEUI + "\r\n")
 print("set to DEVEUI")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -116,7 +121,7 @@ while decoded_data != "OK\r\n":
         print("DEVUI done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:app_eui:" + AppEUI + "\r\n")
+uart.write("AT+APPEUI=" + AppEUI + "\r\n")
 print("set to APPEUI")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -125,7 +130,7 @@ while decoded_data != "OK\r\n":
         print("APPEUI done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:app_key:" + AppKey + "\r\n")
+uart.write("AT+APPKEY=" + AppKey + "\r\n")
 print("set to APPKEY")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -135,19 +140,30 @@ while decoded_data != "OK\r\n":
 ## END OF SETTING UP ##
 
 ## TRY TO JOIN THE NETWORK!##
-def joinNetwork():
+join_count = 1
+def joinNetwork(join_count):
     decoded_data = ""
-    uart.write("at+join\r\n")
-    print("joining...")
-    while decoded_data != "OK Join Success\r\n":
+    uart.write("AT+JOIN=1:0:38:0\r\n")
+    print(str(join_count) + " joining...")
+    binNum = findBinary(join_count)
+    led1.value(int(binNum[0]))
+    led2.value(int(binNum[1]))
+    led3.value(int(binNum[2]))
+    led4.value(int(binNum[3]))
+    led5.value(int(binNum[4]))
+    led6.value(int(binNum[5]))
+    led7.value(int(binNum[6]))
+    led8.value(int(binNum[7]))
+    time.sleep(10)
+    while decoded_data != "OK\r\n":
         try:
             data = uart.read()
             if data:
                 decoded_data = data.decode("utf-8")
-                if decoded_data == "OK Join Success\r\n":
+                print(decoded_data)
+                if decoded_data == "OK\r\n":
                     print(decoded_data)
-                    time.sleep(5)
-                if decoded_data == "ERROR: 99\r\n":
+                elif "AT_BUSY_ERROR" in decoded_data:
                     raise Exception("Join Error")
 
                 while 1:
