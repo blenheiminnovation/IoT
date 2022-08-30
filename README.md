@@ -16,10 +16,12 @@
       - [Components Required](#components-required-2)
     - [Temperature Sensor Process](#temperature-sensor-process)
       - [Components Required](#components-required-3)
-    - [Particulate Matter Sensor Process](#particulate-matter-sensor-process)
+    - [Temperature and Humidity Sensor Process](#temperature-and-humidity-sensor-process)
       - [Components Required](#components-required-4)
-    - [Gas Sensor Process](#gas-sensor-process)
+    - [Particulate Matter Sensor Process](#particulate-matter-sensor-process)
       - [Components Required](#components-required-5)
+    - [Gas Sensor Process](#gas-sensor-process)
+      - [Components Required](#components-required-6)
     - [LoRa Transmission, via the RAK module](#lora-transmission-via-the-rak-module)
       - [Setting up the RAK Module](#setting-up-the-rak-module)
       - [Use of The Things Network](#use-of-the-things-network)
@@ -100,7 +102,7 @@ Using this algorithm you are able to check whether an object is closer to the se
 - Raspberry Pi Pico with USB Connection to PC
 - Breadboard
 - Temperature Sensor
-- 6 Jumper Cables
+- 6 M-M Cables
 - 4 F-M Cables
 
 Another sensor you may wish to use could be a temperature sensor, to use this with the Raspberry Pi Pico you need to use the analogue output of the sensor. With this value you can calculate the reference voltage, by using the: input voltage (3.3V)(Vi), and the analogue output (AO) in the formula:
@@ -114,6 +116,17 @@ $$ Rt = 1 / (((Vi / Vr) - 1) * (1 / Rs)) $$
 You can then use this resistance (Rt) value in the Steinhart equation, to give the temperature in °C:
 
 $$ (1 / ((log(Rt / 10000)) + (1 / (25 + 273.15))) - 273.12 $$
+
+### Temperature and Humidity Sensor Process
+
+#### Components Required
+
+- Raspberry Pi Pico with USB Connection to PC
+- Breadboard
+- Temperature and Humidity sensor (DHT22)
+- 3 M-M Cables
+  
+An alternative to the prior sensor is the DHT22 temperature and humidity sensor. This sensor requires a module to be downloaded, via GitHub, following this [link](https://github.com/danjperron/PicoDHT22) copy the file DHT22.py and save it into the lib folder on the Raspberry Pi Pico. Using this module you will be able to read the data from the sensor.
 
 ### Particulate Matter Sensor Process
 
@@ -140,7 +153,7 @@ Using the Arduino IDE you wil need to download the 'Grove - Multichannel Gas Sen
 
 #### Setting up the RAK Module
 
-Connect the RAK Module to the Raspberry Pi Pico and write the code to be able to connect to The Things Network. Join this code and the code used for the sensors together, to be able to transmit the sensor readings to The Things Network. Once you have done this you can move on to setting up The Things Network for use. You can create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program. However the fields Value 2 and Value 3 were only required for the particulate matter sensor, so can be put as 0 in the other programs. Then convert the string payload into hexadecimal so that it can be transmitted
+Connect the RAK3172/3272s Module to the Raspberry Pi Pico and write the code to be able to connect to The Things Network. Join this code and the code used for the sensors together, to be able to transmit the sensor readings to The Things Network. Once you have done this you can move on to setting up The Things Network for use. You can create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program. However the fields Value 2 and Value 3 are only required for the particulate matter and temperature and humidity sensors, so can be put as 0 in the other programs. Then convert the string payload into hexadecimal so that it can be transmitted
 
 #### Use of The Things Network
 

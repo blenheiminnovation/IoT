@@ -58,21 +58,18 @@ uart = UART(0, 115200)  # use RPI PICO GP0 and GP1
 #    print("Check Config:" + decoded_data)
 
 ## Setup the wireless module OTAA, Class, Region, keys##
-uart.write("at+set_config=lora:join_mode:0\r\n")
+uart.write("AT+NJM=1\r\n")
+decoded_data = ""
 print("set to OTAA")
 while decoded_data != "OK\r\n":
-
     data = uart.read()
-
     if data:
         decoded_data = data.decode("utf-8")
         print("OTAA done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:class:0\r\n")
+uart.write("AT+CLASS=A\r\n")
 print("set to Class A")
-
-
 while decoded_data != "OK\r\n":
     data = uart.read()
     if data:
@@ -80,7 +77,7 @@ while decoded_data != "OK\r\n":
         print("Class A done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:region:EU868\r\n")
+uart.write("AT+BAND=4\r\n")
 print("set to EU868 region")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -89,7 +86,7 @@ while decoded_data != "OK\r\n":
         print("EU868 done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:dev_eui:" + DevEUI + "\r\n")
+uart.write("AT+DEVEUI=" + DevEUI + "\r\n")
 print("set to DEVEUI")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -98,7 +95,7 @@ while decoded_data != "OK\r\n":
         print("DEVUI done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:app_eui:" + AppEUI + "\r\n")
+uart.write("AT+APPEUI=" + AppEUI + "\r\n")
 print("set to APPEUI")
 while decoded_data != "OK\r\n":
     data = uart.read()
@@ -107,7 +104,7 @@ while decoded_data != "OK\r\n":
         print("APPEUI done!\r\n" + decoded_data)
 
 decoded_data = ""
-uart.write("at+set_config=lora:app_key:" + AppKey + "\r\n")
+uart.write("AT+APPKEY=" + AppKey + "\r\n")
 print("set to APPKEY")
 while decoded_data != "OK\r\n":
     data = uart.read()
