@@ -128,3 +128,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.vscode/Pico-Stub/version.json
+.gitignore
+.vscode/extensions.json
+pico-go.json
+.vscode/settings.json
