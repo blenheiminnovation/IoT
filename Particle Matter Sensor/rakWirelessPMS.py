@@ -47,7 +47,7 @@ def hexConvert(
     return hexValue
 
 
-uart = UART(0, 115200)  # use RPI PICO GP6 and GP7
+uart = UART(0, 115200)  # use RPI PICO GP0 and GP1
 
 ## Setup the wireless module OTAA, Class, Region, keys##
 uart.write("ATR\r\n")
@@ -134,7 +134,10 @@ def joinNetwork(join_count):
                 if decoded_data == "OK\r\n":
                     print(decoded_data)
                     time.sleep(30)
-                elif "AT_BUSY_ERROR" in decoded_data or "JOIN_FAILED_RX_TIMEOUT" in decoded_data:
+                elif (
+                    "AT_BUSY_ERROR" in decoded_data
+                    or "JOIN_FAILED_RX_TIMEOUT" in decoded_data
+                ):
                     raise Exception("Join Error")
 
                 while 1:
