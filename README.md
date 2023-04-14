@@ -23,7 +23,7 @@
     - [Gas Sensor Process](#gas-sensor-process)
       - [Components Required](#components-required-6)
     - [LoRa Transmission, via the RAK module](#lora-transmission-via-the-rak-module)
-      - [Setting up the RAK Module](#setting-up-the-rak-module)
+      - [Setting up the LoRaWAN Module](#setting-up-the-lorawan-module)
       - [Use of The Things Network](#use-of-the-things-network)
       - [Use of Datacake](#use-of-datacake)
 
