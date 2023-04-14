@@ -64,7 +64,7 @@ Firstly you will need to download the Thonny IDE, in order to be able to write c
 - 5 M-M Cables
 - 5 F-M Cables
 
-To begin with you could start with a very basic circuit containing the Raspberry Pi Pico, LED, and 220 ohm resistor all plugged into the breadboard. You should then write the code to blink the LED on and off. Following this you can develop both the circuit and code further by adding in a button, which is then used as a condition in a selection statement with the code to toggle the LED nested in it. Further advancements are made by implemeting the ability for the LED to change its brightness, via the use of pulse-width modulation (PWM). Finally you could replace the button with an analogue joystick and use this to change the brightness of the LED based upon the X value of the joystick after an analogue to digital converter (ADC) had been applied to it.
+To begin with you could start with a very basic circuit containing the Raspberry Pi Pico, LED, and 220 ohm resistor all plugged into the breadboard. You should then write the code to blink the LED on and off. Following this you can develop both the circuit and code further by adding in a button, which is then used as a condition in a selection statement with the code to toggle the LED nested in it. Further advancements are made by implementing the ability for the LED to change its brightness, via the use of pulse-width modulation (PWM). Finally you could replace the button with an analogue joystick and use this to change the brightness of the LED based upon the X value of the joystick after an analogue to digital converter (ADC) had been applied to it.
 
 ### Light Dependant Resistor (LDR)/Photo-Resistor Process
 
@@ -123,10 +123,10 @@ $$ (1 / ((log(Rt / 10000)) + (1 / (25 + 273.15))) - 273.12 $$
 
 - Raspberry Pi Pico with USB Connection to PC
 - Breadboard
-- Temperature and Humidity sensor (DHT22)
+- Temperature and Humidity sensor (DHT22 or DHT11)
 - 3 M-M Cables
   
-An alternative to the prior sensor is the DHT22 temperature and humidity sensor. This sensor requires a module to be downloaded, via GitHub, following this [link](https://github.com/danjperron/PicoDHT22) copy the file DHT22.py and save it into the lib folder on the Raspberry Pi Pico. Using this module you will be able to read the data from the sensor.
+An alternative to the prior sensor is the DHT22 or DHT11 temperature and humidity sensor. This requires use of an additional python library (dht), which should be included in the standard Micropython installation.  These sensors are very similar - the DHT11 reports integers, while the DHT22 reports floating point numbers.
 
 ### Particulate Matter Sensor Process
 
@@ -149,15 +149,34 @@ Using the knowledge you have acquired from all of the previous sensors and progr
 
 Using the Arduino IDE you wil need to download the 'Grove - Multichannel Gas Sensor' library, by going into tools > manage libraries and searching for the name. With the module installed you can get the code to read the sensor value by going into the file tab, clicking on examples then the installed library and then ReadSensorValue_Grove. When you have this code and the Arduino plugged in press the upload button on the top bar of the IDE and then the open serial button in the top right corner. You should now see the values from the sesnor being outputted, you will notice there are more than just NO2 however the others can be deleted if you will not be using them. To be implement the ability to transmit data you need to install another library, TheThingsNetwork, and find the SendOTAA example code. With this code and the NO2 sensor code, you can join the two programs together and use the NO2 value from the sensor to create a payload to be transmitted to The Things Netwok.
 
-### LoRa Transmission, via the RAK module
+### LoRa Transmission, via the LoRaWAN module (RAK3172 or ASR6501)
 
-#### Setting up the RAK Module
+This project combines the temperature and humidity sensor above with sending the readings out to The Things Network (TTN) using LoRaWAN (Long Range Wide Area Network). You will need an account at TTN to receive and forward the readings - TTN can then forward the readings to DataCake for storage, or send them via MQTT to a client which might store and/or display the readings. 
 
-Connect the RAK3172/3272s Module to the Raspberry Pi Pico and write the code to be able to connect to The Things Network. Join this code and the code used for the sensors together, to be able to transmit the sensor readings to The Things Network. Once you have done this you can move on to setting up The Things Network for use. You can create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program. However the fields Value 2 and Value 3 are only required for the particulate matter and temperature and humidity sensors, so can be put as 0 in the other programs. Then convert the string payload into hexadecimal so that it can be transmitted
+#### Setting up the LoRaWAN Module
+
+Connect the LoRaWAN Module to the Raspberry Pi Pico and write the code to be able to connect to TTN. Combine this code with the code used for the sensors, to be able to transmit the sensor readings to TTN. You create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program.  Note that all three Value fields are only required for the particulate matter and temperature and humidity sensors; if you only have a DHT11 for instance, you will only need two of these value fields, so simply set unused values to 0. Then convert the string payload into hexadecimal so that it can be transmitted over LoRaWAN.
 
 #### Use of The Things Network
 
-You need to create an account with The Things Network, click on your profile and select console then join or create an application to which you can transmit data and create your device in this application. You also need to code your own payload formatter in JavaScript so that the data can be converted into a more readable format, for human users. To find your DevEUI, AppEUI, and AppKey, to enter into the programs, you must go into the 'End devices' section of your application; then you need to click on your device and under the 'Activation information' subheading you should see the DevEUI, AppEUI, and AppKey. After this you can then test your programs involving the RAK module, checking for a connection to The Things Network and then the transmission of data. Finally create a webhook to Datacake, so that the data can be uplinked and stored in Datacake, to do this go into the 'Integrations' section and click on 'Webhooks'. Once in the webhooks section click 'Add webhook' and select the Datacake template; give the webhhok a name and use the API token from Datacake, found in the API section of the 'Edit Profile' setting. After creating the webhook, you need to go to Datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhook settings.
+You need to create an account with The Things Network: click on your profile and select console then join or create an application to which you can transmit data, and create your device in this application. When you create the application, you need to specify the DevEUI (normally this is printed on the device and/or programmed into it by the manufacturer), AppEUI (also known as JoinEUI; this may be provided by the manufacturer or you can provide it - if you provide it you can use all zeros if you wish).  Once you've entered those, you need to generate an Appkey (which you then program into the device using your program).  
+When the device tries to join the network, if the DevEUI, AppEUI and Appkey configured in TTN match the ones in the application, they will link up and you will see the sent data in the TTN application.   To enter your DevEUI, AppEUI, and generate your AppKey, go to the 'End devices' section of your application in TTN; then click on "Add device"
+
+You can also code your own payload formatter in JavaScript and add this to TTN so that the data can be converted into a more readable format for human users (see below for more on this)  
+
+After this you can then test your program which uses the LoRaWAN module, checking for a connection to The Things Network and then the transmission of data. 
+In TTN, you should see received data: open the application end device, select "Live data".  Mouse over  { decodedData {...} } to see the data decoded by your payload formatter. 
+
+TTN does not keep a history of your data, so finally you need a way to save or download the data...  
+One option is to use a service such as Datacake - this can connect to TTN and save the readings into a database (which you can later query and view the contents)
+Or you could use the MQTT server in TTN and run an mqtt client to subscribe to the feed from this server and read the readings, save them into a local database, graph them, etc.
+
+For Datacake, you need to create a webhook in TTN, so that the data can be uplinked and stored in Datacake; to do this go into the 'Integrations' section and click on 'Webhooks'.  Once in the webhooks section click 'Add webhook' and select the Datacake template; give the webhook a name and use the API token from Datacake, found in the API section of the 'Edit Profile' setting.  After creating the webhook, you need to go to Datacake and copy the link, found in the LoRaWAN Setup Instructions, into the Uplink message box in the webhook settings." 
+
+To use MQTT, under Applications in TTN, select your application, then in the left-hand frame select Integrations, MQTT, Generate new API key.  Copy the key (password) and save it, also note the server name and username (you will also receive an email with the key)
+If you have installed mosquitto on a client, you can use this to subscribe to the MQTT feed, and view the published data, for example:
+mosquitto_sub -h <MQTT-server> -t "#" -u <username> -P <password> -v    (using '#' will subscribe to all the info, so you will see the join requests as well as any data).  Other options might be to use a python script to subscribe and manipulate the data, or an MQTT Dashboard app such as this one for Android: 
+https://play.google.com/store/apps/details?id=com.app.vetru.mqttdashboard  
 
 Screenshots of The Things Network:
 
