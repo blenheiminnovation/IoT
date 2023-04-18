@@ -155,7 +155,7 @@ This project combines the temperature and humidity sensor above with sending the
 
 #### Setting up the LoRaWAN Module
 
-Connect the LoRaWAN Module to the Raspberry Pi Pico and write the code to be able to connect to TTN. Combine this code with the code used for the sensors, to be able to transmit the sensor readings to TTN. You create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program.  Note that all three Value fields are only required for the particulate matter and temperature and humidity sensors; if you only have a DHT11 for instance, you will only need two of these value fields, so simply set unused values to 0. Then convert the string payload into hexadecimal so that it can be transmitted over LoRaWAN.
+Connect the LoRaWAN Module to the Raspberry Pi Pico and write the code to be able to connect to TTN. You will need to download the pylorawan library from https://github.com/cdrajb/LoRaWAN  Combine this code with the code used for the sensors, to be able to transmit the sensor readings to TTN. You create strings to act as payloads in the format: Sensor Type, Sensor Name, Value 1, Value 2, and Value 3, using the values from the sensor and hardcoding the sensor type and name in the program.  Note that all three Value fields are only required for the particulate matter and temperature and humidity sensors; if you only have a DHT11 for instance, you will only need two of these value fields, so simply set unused values to 0. Then convert the string payload into hexadecimal so that it can be transmitted over LoRaWAN.
 
 #### Use of The Things Network
 
