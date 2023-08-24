@@ -16,7 +16,7 @@
       - [Components Required](#components-required-2)
     - [Temperature Sensor Process](#temperature-sensor-process)
       - [Components Required](#components-required-3)
-    - [Temperature and Humidity Sensor Process](#temperature-and-humidity-sensor-process)
+    - [Temperature, Humidity and Pressure Sensor](#temperature-humidity-and-pressure-sensor-process)
       - [Components Required](#components-required-4)
     - [Particulate Matter Sensor Process](#particulate-matter-sensor-process)
       - [Components Required](#components-required-5)
@@ -135,9 +135,9 @@ An alternative to the prior sensor is the DHT22 or DHT11 temperature and humidit
 - Raspberry Pi Pico with USB Connection to PC
 - Breadboard
 - Temperature and Humidity sensor (M5 ENVIII)
-- 3 M-M Cables
+- Grove to M Cable
   
-Yet another option with temperature and humidity is the M5 ENVIII module.  This has two internal sensors: SHT30 which measures temperature and humidity, and qmp6988 which measures temperature and atmospheric pressure. To use these you will need the appropriate libraries (sht30.py and qmp6988.py), which can be downloaded from https://github.com/cdrajb/M5_ENVIII where you will also find a simple program to print the readings.
+Yet another option for temperature and humidity is the M5 ENVIII module.  This has two internal sensors: SHT30 which measures temperature and humidity, and qmp6988 which measures temperature and atmospheric pressure. To use these you will need the appropriate libraries (sht30.py and qmp6988.py), which can be downloaded from https://github.com/cdrajb/M5_ENVIII where you will also find a simple program to print the readings.
 
 ### Particulate Matter Sensor Process
 
