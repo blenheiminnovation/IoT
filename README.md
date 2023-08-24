@@ -50,7 +50,7 @@ For all of the following programs you will need the following modules:
 
 ### Setting up Thonny
 
-Firstly you will need to download the Thonny IDE, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer - whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.
+Firstly you will need to download the Thonny IDE, in order to be able to write code for the Raspberry Pi Pico to execute. Once you have succesfully downloaded and installed Thonny, plug your Raspberry Pi Pico into the computer.  (If the Pico does not already have Micropython installed, it will open an explorer window; in that case, remove and reconnect the cable whilst holding the BOOTSEL button - and press the Stop/Restart button at the top of the Thonny window; a window should pop up allowing you to install MicroPython firmware to the Raspberry Pi Pico. Make sure the target device is correct and press install, once the installation is finished you are ready to write your code.)
 
 ### LED Process
 
@@ -127,6 +127,17 @@ $$ (1 / ((log(Rt / 10000)) + (1 / (25 + 273.15))) - 273.12 $$
 - 3 M-M Cables
   
 An alternative to the prior sensor is the DHT22 or DHT11 temperature and humidity sensor. This requires use of an additional python library (dht), which should be included in the standard Micropython installation.  These sensors are very similar - the DHT11 reports integers, while the DHT22 reports floating point numbers.
+
+### Temperature, Humidity and Pressure Sensor
+
+#### Components Required
+
+- Raspberry Pi Pico with USB Connection to PC
+- Breadboard
+- Temperature and Humidity sensor (M5 ENVIII)
+- 3 M-M Cables
+  
+Yet another option with temperature and humidity is the M5 ENVIII module.  This has two internal sensors: SHT30 which measures temperature and humidity, and qmp6988 which measures temperature and atmospheric pressure. To use these you will need the appropriate libraries (sht30.py and qmp6988.py), which can be downloaded from https://github.com/cdrajb/M5_ENVIII where you will also find a simple program to print the readings.
 
 ### Particulate Matter Sensor Process
 
