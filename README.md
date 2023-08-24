@@ -16,12 +16,14 @@
       - [Components Required](#components-required-2)
     - [Temperature Sensor Process](#temperature-sensor-process)
       - [Components Required](#components-required-3)
-    - [Temperature, Humidity and Pressure Sensor](#temperature-humidity-and-pressure-sensor-process)
+    - [Temperature and Humidity Sensor Process](#temperature-and-humidity-sensor-process)
       - [Components Required](#components-required-4)
-    - [Particulate Matter Sensor Process](#particulate-matter-sensor-process)
+    - [Temperature, Humidity and Pressure Sensor](#temperature-humidity-and-pressure-sensor-process)
       - [Components Required](#components-required-5)
-    - [Gas Sensor Process](#gas-sensor-process)
+    - [Particulate Matter Sensor Process](#particulate-matter-sensor-process)
       - [Components Required](#components-required-6)
+    - [Gas Sensor Process](#gas-sensor-process)
+      - [Components Required](#components-required-7)
     - [LoRa Transmission, via the LoRaWAN module (RAK3172 or ASR6501)](#lora-transmission-via-the-lorawan-module-rak3172-or-asr6501)
       - [Setting up the LoRaWAN Module](#setting-up-the-lorawan-module)
       - [Use of The Things Network](#use-of-the-things-network)
@@ -128,7 +130,7 @@ $$ (1 / ((log(Rt / 10000)) + (1 / (25 + 273.15))) - 273.12 $$
   
 An alternative to the prior sensor is the DHT22 or DHT11 temperature and humidity sensor. This requires use of an additional python library (dht), which should be included in the standard Micropython installation.  These sensors are very similar - the DHT11 reports integers, while the DHT22 reports floating point numbers.
 
-### Temperature, Humidity and Pressure Sensor
+### Temperature Humidity and Pressure Sensor Process
 
 #### Components Required
 
