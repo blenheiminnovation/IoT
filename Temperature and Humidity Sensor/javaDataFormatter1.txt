@@ -4,11 +4,11 @@ function Decoder(bytes, port) {
    var decodedData = {
       SensorType: splitString[0],
       SensorName: splitString[1],
-      Timestamp: splitString[2],
-      Temp: splitString[3],
-      Humidity: splitString[4],
-      SensorValue3: splitString[5]
+      Temp: splitString[2],
+      Humidity: splitString[3],
+      Timestamp: splitString[4],
    }
    return {
       decodedData
    }
+}
