@@ -48,8 +48,8 @@ if modem.join():
                     temperature = sensor.temperature()
                     humidity = sensor.humidity()
                     valuesString = (
-                        "TMP~~TST~~" + str(tmstmp) + "~~" + str(temperature) + "~~" + str(humidity) +"~~0"
-                    )  # This acts as the payload for transmission and is in the structure: Sensor Type, Sensor Name, timestamp, Value 1, Value 2, Value 3
+                        "TMP~~TST~~" + str(temperature) + "~~" + str(humidity) + "~~" + str(tmstmp) 
+                    )  # This acts as the payload for transmission and is in the structure: Sensor Type, Sensor Name, Value 1, Value 2, timestamp
                     print(valuesString)
                     payload = hexConvert(valuesString)
                     modem.send_data(payload,2,1) # data,port,tries
