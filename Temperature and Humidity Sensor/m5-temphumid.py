@@ -17,7 +17,7 @@ def hexConvert(
 # Tested with a DHT11 temperature and humidity sensor
 sensor = dht.DHT11(Pin(2))
 
-# Talk to the modem using the UART0 TRansmitter(Tx) / Receiver(Rx)
+# Talk to the modem using the UART TRansmitter(Tx) / Receiver(Rx)
 uart = UART(1, 115200, tx=Pin(4), rx=Pin(5))  # use RPI PICO; pins 4,5 are UART1 
 
 # The device uses AT commands like a traditional modem, so we'll refer to it as a modem.
@@ -60,4 +60,3 @@ if modem.join():
 else:
     # Could not join the network...
         print("Failed to Join, are your keys correct? Is there a gateway in range?")
-  
