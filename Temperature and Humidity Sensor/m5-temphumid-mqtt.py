@@ -8,22 +8,19 @@ from binascii import hexlify
 # Tested with a Raspberry PI Pico and M5 LoRaWAN868
 def hexConvert(
     string,
-):  # Acts to convert the payload into hexadecimal format, so that it can be sent to The Things Network and Datacake to be decoded on each of these platforms
-    encoded = string.encode()
+):  # convert the payload into hexadecimal string format, so that it can be sent to The Things Network and thence to Datacake 
     hexValue = hexlify(string).decode()
     print(hexValue)
     return hexValue
 
 sensor = dht.DHT11(Pin(2))
 
-# Talk to the modem using the UART0 TRansmitter(Tx) / Receiver(Rx)
-#uart = UART(1, 9600)  # use RPI PICO
+# Talk to the modem using the UART TRansmitter(Tx) / Receiver(Rx)
 uart = UART(1, 115200, tx=Pin(4), rx=Pin(5))  # use RPI PICO; pins 4,5 are UART1 
-# The device uses AT commands like a traditional modem, so i'll refer to it as a modem.
+# The device uses AT commands like a traditional modem, so we'll refer to it as a modem.
 #
 modem = pylorawan.LorawanModem(uart, "ASR6501", debug=False)
 # Configure it to use OTAA (rather ABP comms) using keys from the device itself and The Things Network Console
-# dev_eui is printed in the top of the chip casing
 #
 print("configuring OTAA...")
 modem.configure_otaa(region="EU868",
@@ -55,10 +52,10 @@ if modem.join():
                     modem.send_data(payload,2,1) # data,port,tries
                     #uart.write(
                     #    "AT+SEND=2:" + payload + "\r\n"
-                    #)  # Sends the payload to The Things Network, which then forward uplinks the data to Datacake
+                    #)  # Sends the payload to The Things Network, which may then forward the data to Datacake
                     time.sleep(
                         5 * 60
-                    )  # Stops the data from being constantly transmitted, by forcing it to wait for 15 minutes before iterating through the loop again
+                    )  # wait for 5 minutes before iterating through the loop again
 else:
     # Could not join the network...
         print("Failed to Join, are your keys correct? Is there a gateway in range?")
